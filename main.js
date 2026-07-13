@@ -183,8 +183,13 @@
             return;
         }
 
-        // Max study per day: 4 hours on weekdays, 6 hours on weekends
-        const MAX_STUDY_PER_DAY = [240, 240, 240, 240, 240, 360, 360]; // in minutes
+        // Read user's preferred study hours per day from the dropdowns
+        const hourSelects = document.querySelectorAll('.hours-select');
+        const MAX_STUDY_PER_DAY = [];
+        hourSelects.forEach(sel => {
+            const hours = parseFloat(sel.value);
+            MAX_STUDY_PER_DAY.push(Math.round(hours * 60)); // convert to minutes
+        });
 
         // Build availability grid: dayIndex -> array of free 30-min slots (boolean)
         const freeSlots = {};

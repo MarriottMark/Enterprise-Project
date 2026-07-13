@@ -214,6 +214,52 @@ header p {
 .priority-2 { background: #e2e8f0; color: #4a5568; }
 .priority-1 { background: #edf2f7; color: #718096; }
 
+/* --- Study Hours Grid --- */
+.study-hours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.study-hours-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #f7fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.study-hours-row.weekend {
+    background: #faf5ff;
+    border-color: #e9d8fd;
+}
+
+.day-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #2d3748;
+    min-width: 80px;
+}
+
+.hours-select {
+    padding: 6px 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: #fff;
+    flex: 1;
+    min-width: 100px;
+    outline: none;
+    cursor: pointer;
+}
+
+.hours-select:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
 /* --- Error --- */
 .error {
     color: #e53e3e;
