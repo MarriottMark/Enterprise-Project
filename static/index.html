@@ -1,16 +1,85 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Study Timetable Generator</title>
+    <meta name="description" content="Generate a personalised study timetable based on your subjects, priorities, and commitments.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Study Timetable Generator</h1>
+            <p>Enter your subjects, their priorities, and any other commitments you have. The tool will generate a personalised weekly study timetable that you can download.</p>
+        </header>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Enterprise Project</title>
-        <meta name="description" content="Website For my Enterprise computing Project">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/static/style.css">
-    </head>
-    <body>
-        
-        <script src="/main.js" async defer></script>
-    </body>
+        <!-- Top half of the UI -->
+        <section class="card" id="subjects-section">
+            <h2>Step 1: Add Your Subjects</h2>
+            <p class="hint">Add each subject you are studying and set its priority. Priority 1 is the lowest priority, priority 5 is the highest.</p>
+            <div class="input-row">
+                <input type="text" id="subject-name" placeholder="Subject name (e.g. Mathematics)" maxlength="50">
+                <label for="subject-priority" class="sr-only">Priority</label>
+                <select id="subject-priority">
+                    <option value="1">Priority 1 (Low)</option>
+                    <option value="2">Priority 2</option>
+                    <option value="3" selected>Priority 3 (Medium)</option>
+                    <option value="4">Priority 4</option>
+                    <option value="5">Priority 5 (High)</option>
+                </select>
+                <button id="add-subject-btn" class="btn btn-primary">Add Subject</button>
+            </div>
+            <ul id="subject-list" class="item-list"></ul>
+        </section>
+
+        <!-- Lower half of the UI -->
+        <section class="card" id="commitments-section">
+            <h2>Step 2: Add Your Commitments</h2>
+            <p class="hint">Add any fixed commitments that take up time in your week. This could be work, sport training, appointments, or anything else that happens at a set time.</p>
+            <div class="input-row">
+                <input type="text" id="commitment-name" placeholder="Commitment (e.g. Soccer training)" maxlength="50">
+                <label for="commitment-day" class="sr-only">Day</label>
+                <select id="commitment-day">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+                <label for="commitment-start" class="sr-only">Start time</label>
+                <input type="time" id="commitment-start" value="09:00">
+                <label for="commitment-end" class="sr-only">End time</label>
+                <input type="time" id="commitment-end" value="10:00">
+                <button id="add-commitment-btn" class="btn btn-primary">Add Commitment</button>
+            </div>
+            <ul id="commitment-list" class="item-list"></ul>
+        </section>
+
+
+        <section class="card" id="generate-section">
+            <button id="generate-btn" class="btn btn-large btn-accent">Generate Timetable</button>
+            <p id="error-message" class="error"></p>
+        </section>
+
+    <!-- Timetable maker -->
+        <section class="card" id="timetable-section" style="display:none;">
+            <h2>Your Study Timetable</h2>
+            <div class="download-buttons">
+                <button id="download-png-btn" class="btn btn-secondary">Download as PNG</button>
+                <button id="download-pdf-btn" class="btn btn-secondary">Download as PDF</button>
+            </div>
+            <div id="timetable-wrapper">
+                <div id="timetable-grid"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
 </html>

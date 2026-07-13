@@ -1,0 +1,374 @@
+/* ===========================================
+   Study Timetable Generator - Styles
+   =========================================== */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f0f4f8;
+    color: #1a202c;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* --- Layout --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Header --- */
+header {
+    text-align: center;
+    padding: 30px 20px 20px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #2b6cb0;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 1.05rem;
+    color: #4a5568;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Cards --- */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 6px;
+}
+
+.hint {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 14px;
+}
+
+/* --- Input Row --- */
+.input-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.input-row input[type="text"],
+.input-row input[type="time"] {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    flex: 1 1 180px;
+    min-width: 120px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-row input:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.input-row select {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: #fff;
+    flex: 0 1 auto;
+    min-width: 140px;
+    outline: none;
+    cursor: pointer;
+}
+
+.input-row select:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background: #4299e1;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #3182ce;
+}
+
+.btn-secondary {
+    background: #edf2f7;
+    color: #2d3748;
+    border: 1px solid #cbd5e0;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+.btn-accent {
+    background: #48bb78;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 14px 36px;
+}
+
+.btn-accent:hover {
+    background: #38a169;
+}
+
+.btn-large {
+    display: block;
+    width: 100%;
+}
+
+.btn-danger-sm {
+    background: #fc8181;
+    color: #fff;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-danger-sm:hover {
+    background: #f56565;
+}
+
+/* --- Item Lists --- */
+.item-list {
+    list-style: none;
+}
+
+.item-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: #f7fafc;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.item-list li .item-label {
+    font-weight: 500;
+}
+
+.item-list li .item-detail {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-left: 10px;
+}
+
+.priority-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.priority-5 { background: #fefcbf; color: #744210; }
+.priority-4 { background: #fefcbf; color: #744210; }
+.priority-3 { background: #e2e8f0; color: #2d3748; }
+.priority-2 { background: #e2e8f0; color: #4a5568; }
+.priority-1 { background: #edf2f7; color: #718096; }
+
+/* --- Error --- */
+.error {
+    color: #e53e3e;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    min-height: 1.2em;
+}
+
+/* --- Download Buttons --- */
+.download-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+/* --- Timetable Grid --- */
+#timetable-wrapper {
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+#timetable-grid {
+    display: grid;
+    grid-template-columns: 70px repeat(7, 1fr);
+    min-width: 800px;
+    font-size: 0.82rem;
+}
+
+/* Header row */
+.tt-header {
+    background: #2b6cb0;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 4px;
+    border-right: 1px solid #3182ce;
+    border-bottom: 1px solid #3182ce;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tt-header:first-child {
+    background: #2b6cb0;
+    border-right: 1px solid #3182ce;
+}
+
+/* Time label column */
+.tt-time {
+    background: #f7fafc;
+    font-weight: 600;
+    color: #4a5568;
+    text-align: center;
+    padding: 4px 2px;
+    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Timetable cells */
+.tt-cell {
+    border-bottom: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
+    min-height: 28px;
+    padding: 2px 4px;
+    position: relative;
+    transition: background 0.15s;
+}
+
+/* Study block */
+.tt-study-block {
+    background: #c6f6d5;
+    border-radius: 4px;
+    padding: 3px 5px;
+    margin: 1px 0;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    border-left: 3px solid #38a169;
+    cursor: default;
+}
+
+.tt-study-block .block-subject {
+    font-weight: 600;
+    color: #22543d;
+}
+
+.tt-study-block .block-time {
+    color: #276749;
+    font-size: 0.65rem;
+}
+
+/* Commitment block */
+.tt-commitment-block {
+    background: #fed7d7;
+    border-radius: 4px;
+    padding: 3px 5px;
+    margin: 1px 0;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    border-left: 3px solid #e53e3e;
+    cursor: default;
+}
+
+.tt-commitment-block .block-title {
+    font-weight: 600;
+    color: #742a2a;
+}
+
+.tt-commitment-block .block-time {
+    color: #9b2c2c;
+    font-size: 0.65rem;
+}
+
+/* Break block */
+.tt-break-block {
+    background: #fefcbf;
+    border-radius: 4px;
+    padding: 3px 5px;
+    margin: 1px 0;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    border-left: 3px solid #d69e2e;
+    cursor: default;
+    font-style: italic;
+    color: #744210;
+}
+
+/* Weekend column shading */
+.tt-cell.weekend {
+    background: #faf5ff;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    body { padding: 12px; }
+    header h1 { font-size: 1.6rem; }
+    .card { padding: 16px; }
+    .input-row { flex-direction: column; align-items: stretch; }
+    .input-row input, .input-row select { flex: 1 1 auto; width: 100%; }
+    .download-buttons { flex-direction: column; }
+}
+
+/* --- Utility --- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
